@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout code') {
             steps {
-                git branch: 'main', url: 'git_repo_url'
+                git branch: 'main', url: 'https://github.com/7008840339/java-web-appp.git'
             }
         }
         stage('build code') {
@@ -13,9 +13,9 @@ pipeline {
             }
         }
         stage('Deployment'){
-			      steps{
-				        deploy adapters: [ tomcat9(url: 'http://107.20.35.178:8080/', credentialsId: 'TomcatCreds')], war:'target/*.war'
-			      }
-		    }
+	   steps{
+		deploy adapters: [ tomcat9(url: 'http://50.18.98.178:8080/', credentialsId: 'tomcatcred')], war:'target/*.war'
+	   }
+	}
     }
 }
